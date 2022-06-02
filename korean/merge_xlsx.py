@@ -1,12 +1,16 @@
+import os
 from turtle import pd
 import pandas as pd
 import numpy as np
 
 
+ROOT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+
+
 with open(
-    "/Users/byungwook/Codes/vscode/fairseq/korean/data/korean.out", "r"
+    f"{ROOT_DIRECTORY}/data/korean.out", "r"
 ) as korean, open(
-    "/Users/byungwook/Codes/vscode/fairseq/korean/data/english.out", "r"
+    f"{ROOT_DIRECTORY}/data/english.out", "r"
 ) as english:
     korean_lines = korean.readlines()
     english_lines = english.readlines()
@@ -39,7 +43,7 @@ validation_df = shuffled_df[:validation_cnt]
 test_df = shuffled_df[validation_cnt : validation_cnt + test_cnt]
 train_df = shuffled_df[validation_cnt + test_cnt :]
 
-text_dir = "/Users/byungwook/Codes/vscode/fairseq/korean/text"
+text_dir = f"{ROOT_DIRECTORY}/text"
 
 with open(f"{text_dir}/valid.ko", "w") as valid_ko_file, open(
     f"{text_dir}/valid.en", "w"

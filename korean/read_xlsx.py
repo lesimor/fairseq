@@ -1,8 +1,11 @@
 import pandas as pd
 from os import walk
+import os
 from pathlib import Path
 
-root_dir = "/Users/byungwook/Codes/vscode/fairseq/korean/mini_data"
+ROOT_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
+
+root_dir = f"{ROOT_DIRECTORY}/data"
 filenames = next(walk(root_dir), (None, None, []))[2]
 
 print(filenames)
@@ -16,10 +19,10 @@ for filename in filenames:
     english = df["번역문"]
     assert len(korean) == len(english)
 
-    with open(korean_out, "w+") as f:
+    with open(korean_out, "a") as f:
         merged = "\n".join(korean)
         f.write(merged)
 
-    with open(english_out, "w+") as f:
+    with open(english_out, "a") as f:
         merged = "\n".join(english)
         f.write(merged)
