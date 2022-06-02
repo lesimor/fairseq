@@ -45,8 +45,8 @@ train_df = shuffled_df[validation_cnt + test_cnt :]
 
 text_dir = f"{ROOT_DIRECTORY}/text"
 
-with open(f"{text_dir}/valid.ko", "w") as valid_ko_file, open(
-    f"{text_dir}/valid.en", "w"
+with open(f"{text_dir}/valid.ko", "a") as valid_ko_file, open(
+    f"{text_dir}/valid.en", "a"
 ) as valid_en_file:
     ko_merged = "\n".join(validation_df["korean"])
     valid_ko_file.write(ko_merged)
@@ -54,8 +54,8 @@ with open(f"{text_dir}/valid.ko", "w") as valid_ko_file, open(
     en_merged = "\n".join(validation_df["english"])
     valid_en_file.write(en_merged)
 
-with open(f"{text_dir}/test.ko", "w") as test_ko_file, open(
-    f"{text_dir}/test.en", "w"
+with open(f"{text_dir}/test.ko", "a") as test_ko_file, open(
+    f"{text_dir}/test.en", "a"
 ) as test_en_file:
     ko_merged = "\n".join(test_df["korean"])
     test_ko_file.write(ko_merged)
@@ -64,8 +64,8 @@ with open(f"{text_dir}/test.ko", "w") as test_ko_file, open(
     test_en_file.write(en_merged)
 
 
-with open(f"{text_dir}/train.ko", "w") as train_ko_file, open(
-    f"{text_dir}/train.en", "w"
+with open(f"{text_dir}/train.ko", "a") as train_ko_file, open(
+    f"{text_dir}/train.en", "a"
 ) as train_en_file:
     ko_merged = "\n".join(train_df["korean"])
     train_ko_file.write(ko_merged)
